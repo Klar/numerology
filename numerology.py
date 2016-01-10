@@ -25,7 +25,7 @@ words.close()
 # value of word
 wordvalue = 0
 
-#loop trough wordlist
+#loop trough wordlist / calculate number of every word
 for word in wordlist:
 
 	#reset value
