@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import operator
+
 # calculates the numerological number (pytagoras) from words in a wordlist
 
 #creae a dictionary with name and value
@@ -53,15 +55,18 @@ for word in wordlist:
 	name_value[word] = wordvalue
 
 #count for every word the value (together)
-for x in (1,2,3,4,5,6,7,8,9,11,22):
-	print str(x) + " : " + str(sum( y == x for y in name_value.values() ))
+#for x in (1,2,3,4,5,6,7,8,9,11,22):
+#    print str(x) + " : " + str(sum( y == x for y in name_value.values() ))
 
 #ignore the words if a specific char is in it
-chars = set('yzqj')
+# chars = set('yzqj')
+chars = set()
+#number=input('Choose Number to show words: ')
 
-number=input('Choose Number to show words: ')
+
+sorted_x = sorted(name_value.items(), key=operator.itemgetter(1))
 
 #show word and value based on the input number, filters out the words based on chars set
-for word, value in name_value.items():
-	if not any((c in chars) for c in word) and value == number:
+for word, value in sorted_x:
+        if not any((c in chars) for c in word): #and value == number:
 		print word + " : " + str(value)
